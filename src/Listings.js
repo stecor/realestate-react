@@ -5,31 +5,31 @@ export default class Listings extends Component {
   constructor () {
     super()
     this.state = {
-      
+
     }
     this.loopListings= this.loopListings.bind(this)
   }
-  
+
   clickedBtn = () => {
     console.log('swag')
   }
-  
-  
-  
+
+
+
   loopListings(){
-    
-    var {listingsData} = this.props   
-    
+
+    var {listingsData} = this.props
+
     if(listingsData === undefined || listingsData.length === 0){
       return "Sorry your filter did not match any listing"
     }
-    
+
     return listingsData.map((listing, index) => {
-      
+
       var formatedPrice = listing.price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-      
+
       if(this.props.globalState.view === 'box'){
-        
+
       //this is the box view
       return (
     <div className="col-md-3" key={index} >
@@ -53,12 +53,12 @@ export default class Listings extends Component {
               <i className="fa fa-bed"></i>
               <span>{listing.rooms} bedr.</span>
               </div>
-            </div> 
+            </div>
             <div className="view-btn">
               Details
             </div>
             <span className="post-date">Posted: {listing.postDate}</span>
-            </div> 
+            </div>
           </div>
         </div>
         <div className="bottom-info">
@@ -69,7 +69,7 @@ export default class Listings extends Component {
       </div>
      )
    }else {
-     
+
      // this is long view
      return (
    <div className="col-md-12 col-lg-6" key={index} >
@@ -93,12 +93,12 @@ export default class Listings extends Component {
              <i className="fa fa-bed"></i>
              <span>{listing.rooms} bedr.</span>
              </div>
-           </div> 
+           </div>
            <div className="view-btn">
              Details
            </div>
            <span className="post-date">Posted on: {listing.postDate}</span>
-           </div> 
+           </div>
          </div>
        </div>
        <div className="bottom-info">
@@ -111,15 +111,15 @@ export default class Listings extends Component {
    }
     })
   }
-  
+
   render () {
     return (
       <section id="listings">
-      
+
         <section className="search-area">
           <input type="text" name="search" onChange={this.props.change}/>
         </section>
-        
+
         <section className="sortby-area">
           <div className="results">{this.props.globalState.filterData.length} results found</div>
           <div className="sort-options">
@@ -133,13 +133,13 @@ export default class Listings extends Component {
             </div>
           </div>
         </section>
-        
+
         <section className="listings-results">
         <div className="row">
-          {this.loopListings()}        
+          {this.loopListings()}
         </div>
         </section>
-        
+
         <section id="pagination">
         <div className="row">
           <ul className="pages">
@@ -152,11 +152,9 @@ export default class Listings extends Component {
             <li>next</li>
           </ul>
           </div>
-        
+
         </section>
       </section>
     )
   }
 }
-
-
