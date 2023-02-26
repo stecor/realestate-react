@@ -2,7 +2,7 @@
 
 
 
-Live demo: [https://stecor.github.io/realestate-react/](https://stecor.github.io/realestate-react/)
+Live demo: [https://react-realties.vercel.app/](https://react-realties.vercel.app/)
 
 To build the project locally, download or clone the files and run:
 
